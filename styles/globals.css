@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-zinc-900 h-full overflow-x-hidden;
+}
+
+#__next {
+  @apply h-full;
+}
+
+html {
+  @apply h-full;
+}
+
+.bg-image {
+  @apply bg-no-repeat bg-center bg-fixed bg-cover;
+}
+
+.sign-in-input {
+  @apply 
+    block 
+    w-full 
+    rounded-md 
+    px-6 pt-6 pb-1 
+    text-base text-white 
+    bg-neutral-700 
+    appearance-none 
+    focus:outline-none focus:ring-0 focus:bg-neutral-600
+    invalid:border-b-2 invalid:border-b-[#e87c02]
+    ;
+}
+
+.sign-in-label {
+  @apply 
+    absolute
+    text-base
+    text-zinc-400
+    duration-150
+    transition-all ease-in-out
+    transform -translate-y-3 scale-75 
+    top-4 left-6 z-10
+    origin-[0]
+    peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+    peer-focus:scale-75 peer-focus:-translate-y-3
+}
