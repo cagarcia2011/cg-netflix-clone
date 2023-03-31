@@ -33,10 +33,11 @@ const Home = () => {
     <>
       <Head>
         <link rel="apple-touch-icon" href="/logo-180x180.png" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
         <meta name="theme-color" content="#18181b" />
         <link rel="manifest" href="/manifest.json" />
+        <meta name="description" content="This a clone of a website built for educational purposes only." />
         <title>CG Netflix Clone</title>
       </Head>
       <InfoModal visible={isOpen} onClose={closeModal} />
