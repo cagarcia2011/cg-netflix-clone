@@ -1,0 +1,23 @@
+{
+    "name": "CG Netflix Clone",
+    "short_name": "Netflix",
+    "description": "Carlos Garcia's Netflix Clone Project",
+    "theme_color": "#d91821",
+    "background_color": "#18181b",
+    "icons": [
+        {
+            "src": "/logo-192x192.png",
+            "size": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/logo-196x196.png",
+            "size": "196x196",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "start_url": "/auth",
+    "display": "standalone",
+    "prefer_related_applications": true
+}

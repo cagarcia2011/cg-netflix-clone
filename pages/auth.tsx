@@ -41,17 +41,26 @@ const Auth = () => {
 
     const toggleAuthType = useCallback(() => {
         setIsLogin(prev => !prev)
+        setError('')
     }, [])
 
     const onNameChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setName(event.target.value)
+        setError('')
     }, [])
     const onEmailChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value)
+        setError('')
     }, [])
     const onPasswordChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(event.target.value)
+        setError('')
     }, [])
+
+    const handleDemoAccount = (event: React.MouseEvent<HTMLSpanElement>) => {
+        setEmail("demo.account@test.com")
+        setPassword("demoaccount1234")
+    }
 
     const login = useCallback(async (event: React.MouseEvent<HTMLButtonElement> | null = null) => {
         setIsLoading(true)
@@ -65,6 +74,7 @@ const Auth = () => {
             })
 
             if (response?.error) {
+                setIsLoading(false)
                 setError(response.error)
                 return;
             }
@@ -114,6 +124,15 @@ const Auth = () => {
                             <Input id="email" type="email" label="Email" value={email} onChange={onEmailChange} />
                             <Input id="password" type="password" label="Password" value={password} onChange={onPasswordChange} />
                         </div>
+                        {
+                            isLogin &&
+                            <p className="text-neutral-500 mt-1">
+                                Need a demo account?
+                                <span onClick={handleDemoAccount} className="text-white ml-1 hover:underline cursor-pointer">
+                                    Click Here
+                                </span>
+                            </p>
+                        }
                         <button onClick={isLogin ? login : register} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition-all duration-150 ease-in-out">
                             {
                                 isLogin && !isLoading ? "Sign In" : !isLoading ? "Register" :
@@ -122,6 +141,7 @@ const Auth = () => {
                                     </div>
                             }
                         </button>
+                        {error && <p className="text-red-600 mt-6">{error}</p>}
                         <div className="flex flex-row items-center gap-4 mt-8 justify-center">
                             <div onClick={() => signIn('google', { callbackUrl: '/profiles' })} className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
                                 <FcGoogle size={32} />
