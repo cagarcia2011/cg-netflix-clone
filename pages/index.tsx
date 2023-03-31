@@ -1,7 +1,7 @@
 import { NextPageContext } from 'next';
 import { getSession } from 'next-auth/react';
 
-import {Navbar, Billboard, MovieList, InfoModal} from '@/components';
+import { Navbar, Billboard, MovieList, InfoModal } from '@/components';
 import useMovieList from '@/hooks/useMovieList';
 import useFavorites from '@/hooks/useFavorites';
 import useInfoModalStore from '@/hooks/useInfoModalStore';
@@ -27,18 +27,12 @@ export async function getServerSideProps(context: NextPageContext) {
 const Home = () => {
   const { data: movies = [] } = useMovieList();
   const { data: favorites = [] } = useFavorites();
-  const {isOpen, closeModal} = useInfoModalStore();
+  const { isOpen, closeModal } = useInfoModalStore();
 
   return (
     <>
       <Head>
-        <link rel="apple-touch-icon" href="/logo-180x180.png" />
-        <link rel="icon" href="/logo-180x180.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-        <meta name="theme-color" content="#18181b" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="description" content="This a clone of a website built for educational purposes only." />
-        <title>CG Netflix Clone</title>
+        <title>CGFlix Clone</title>
       </Head>
       <InfoModal visible={isOpen} onClose={closeModal} />
       <Navbar />

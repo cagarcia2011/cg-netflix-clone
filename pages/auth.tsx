@@ -2,6 +2,7 @@ import { Nav, Input } from "@/components";
 import axios from "axios";
 import { NextPageContext } from "next";
 import { getSession, signIn } from "next-auth/react";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 
@@ -109,47 +110,64 @@ const Auth = () => {
     }, [isLogin])
 
     return (
-        <div className="relative h-[100svh] w-full bg-hero bg-image">
-            <div className="bg-black w-full h-full lg:bg-opacity-50">
-                <Nav />
-                <div className="flex justify-center">
-                    <div className="bg-black bg-opacity-70 px-16 py-16 self-center mt-[1.2rem] lg:w-2/5 lg:max-w-md rounded-md w-full">
-                        <h2 className="text-white text-4xl mb-8 font-semibold">
-                            {isLogin ? "Sign In" : "Register"}
-                        </h2>
-                        <div className="flex flex-col gap-4">
-                            {isRegister && <Input id="name" type="text" label="Name" value={name} onChange={onNameChange} />}
-                            <Input id="email" type="email" label="Email" value={email} onChange={onEmailChange} />
-                            <Input id="password" type="password" label="Password" value={password} onChange={onPasswordChange} />
-                        </div>
-                        {
-                            isLogin &&
-                            <p className="text-neutral-500 mt-1">
-                                Need a demo account?
-                                <span onClick={handleDemoAccount} className="text-white ml-1 hover:underline cursor-pointer">
-                                    Click Here
+        <>
+            <Head>
+                <title>CGFlix Clone Sign In</title>
+            </Head>
+            <div className="relative h-[100svh] w-full bg-hero bg-image">
+                <div className="bg-black w-full h-full lg:bg-opacity-50">
+                    <Nav />
+                    <div className="flex justify-center">
+                        <div className="bg-black bg-opacity-70 px-16 py-16 self-center mt-[1.2rem] lg:w-2/5 lg:max-w-md rounded-md w-full">
+                            <h2 className="text-white text-4xl mb-8 font-semibold">
+                                {isLogin ? "Sign In" : "Register"}
+                            </h2>
+                            <div className="flex flex-col gap-4">
+                                {isRegister && <Input id="name" type="text" label="Name" value={name} onChange={onNameChange} />}
+                                <Input id="email" type="email" label="Email" value={email} onChange={onEmailChange} />
+                                <Input id="password" type="password" label="Password" value={password} onChange={onPasswordChange} />
+                            </div>
+                            {
+                                isLogin &&
+                                <p className="text-neutral-500 mt-1">
+                                    Need a demo account?
+                                    <span onClick={handleDemoAccount} className="text-white ml-1 hover:underline cursor-pointer">
+                                        Click Here
+                                    </span>
+                                </p>
+                            }
+                            <button onClick={isLogin ? login : register} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition-all duration-150 ease-in-out">
+                                {
+                                    isLogin && !isLoading ? "Sign In" : !isLoading ? "Register" :
+                                        <div className="flex items-center justify-center">
+                                            <AiOutlineLoading3Quarters color="#fff" className="animate-spin" fontSize={"1.5rem"} />
+                                        </div>
+                                }
+                            </button>
+                            {error && <p className="text-red-600 mt-6">{error}</p>}
+                            <p className="text-neutral-500 mt-12">
+                                {isLogin ? "First time using Netflix?" : 'Already have an account?'}
+                                <span onClick={toggleAuthType} className="text-white ml-1 hover:underline cursor-pointer">
+                                    {isLogin ? "Create an account" : "Sign in"}
                                 </span>
                             </p>
-                        }
-                        <button onClick={isLogin ? login : register} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition-all duration-150 ease-in-out">
-                            {
-                                isLogin && !isLoading ? "Sign In" : !isLoading ? "Register" :
-                                    <div className="flex items-center justify-center">
-                                        <AiOutlineLoading3Quarters color="#fff" className="animate-spin" fontSize={"1.5rem"} />
-                                    </div>
-                            }
-                        </button>
-                        {error && <p className="text-red-600 mt-6">{error}</p>}
-                        <p className="text-neutral-500 mt-12">
-                            {isLogin ? "First time using Netflix?" : 'Already have an account?'}
-                            <span onClick={toggleAuthType} className="text-white ml-1 hover:underline cursor-pointer">
-                                {isLogin ? "Create an account" : "Sign in"}
-                            </span>
-                        </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="absolute w-full bottom-0 left-0 h-[20vh] bg-black bg-opacity-70 py-8 px-4">
+                    <div className="flex justify-center items-center">
+                        <div className="px-[20%] py-4">
+                            <p className="text-white text-md font-medium">
+                                Disclaimer:
+                            </p>
+                            <p className="text-neutral-500 text-sm mt-2">
+                                This website is a clone of Netflix created for educational purposes only. This site is not affiliated with or endorsed by Netflix in any way. All content shown on this site is purely fictional and created solely for educational purposes. <br /><br />Any resemblance to actual products, services, persons, or companies is purely coincidental. We do not intend to mislead or deceive anyone with the content presented on this site. Please use this site only for educational purposes and do not attempt to use it for any illegal or unethical activities.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 
