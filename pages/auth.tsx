@@ -6,8 +6,6 @@ import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
-import { FcGoogle } from 'react-icons/fc';
-import { FaGithub } from 'react-icons/fa';
 
 export async function getServerSideProps(context: NextPageContext) {
     const session = await getSession(context)
@@ -142,14 +140,6 @@ const Auth = () => {
                             }
                         </button>
                         {error && <p className="text-red-600 mt-6">{error}</p>}
-                        <div className="flex flex-row items-center gap-4 mt-8 justify-center">
-                            <div onClick={() => signIn('google', { callbackUrl: '/profiles' })} className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
-                                <FcGoogle size={32} />
-                            </div>
-                            <div onClick={() => signIn('github', { callbackUrl: '/profiles' })} className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
-                                <FaGithub size={32} />
-                            </div>
-                        </div>
                         <p className="text-neutral-500 mt-12">
                             {isLogin ? "First time using Netflix?" : 'Already have an account?'}
                             <span onClick={toggleAuthType} className="text-white ml-1 hover:underline cursor-pointer">
