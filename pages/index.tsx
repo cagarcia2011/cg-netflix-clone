@@ -33,7 +33,7 @@ const Home = () => {
     <>
       <Head>
         <link rel="apple-touch-icon" href="/logo-180x180.png" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo-180x180.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
         <meta name="theme-color" content="#18181b" />
         <link rel="manifest" href="/manifest.json" />

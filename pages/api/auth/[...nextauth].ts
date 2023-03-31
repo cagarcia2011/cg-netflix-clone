@@ -42,7 +42,7 @@ export default NextAuth({
 
                 return user;
             }
-        })
+        }),
     ],
     pages: {
         signIn: '/auth'
