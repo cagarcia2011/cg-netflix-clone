@@ -154,14 +154,14 @@ const Auth = () => {
                         </div>
                     </div>
                 </div>
-                <div className="absolute w-full bottom-0 left-0 h-[20vh] bg-black bg-opacity-70 py-8 px-4">
+                <div className="absolute w-full bottom-0 left-0 h-[20vh] bg-black bg-opacity-70 py-2 md:py-8 px-4 md:overflow-hidden overflow-scroll">
                     <div className="flex justify-center items-center">
-                        <div className="px-[20%] py-4">
+                        <div className="px-[10%] py-4">
                             <p className="text-white text-md font-medium">
                                 Disclaimer:
                             </p>
-                            <p className="text-neutral-500 text-sm mt-2">
-                                This website is a clone of Netflix created for educational purposes only. This site is not affiliated with or endorsed by Netflix in any way. All content shown on this site is purely fictional and created solely for educational purposes. <br /><br />Any resemblance to actual products, services, persons, or companies is purely coincidental. We do not intend to mislead or deceive anyone with the content presented on this site. Please use this site only for educational purposes and do not attempt to use it for any illegal or unethical activities.
+                            <p className="text-neutral-500 text-xs mt-2">
+                                This website is a clone of Netflix created for educational purposes only. This site is not affiliated with or endorsed by Netflix in any way. All content shown on this site is purely fictional and created solely for educational purposes. <br /><br />Any resemblance to actual products, services, persons, or companies is purely coincidental. I do not intend to mislead or deceive anyone with the content presented on this site. Please use this site only for educational purposes and do not attempt to use it for any illegal or unethical activities.
                             </p>
                         </div>
                     </div>
