@@ -11,12 +11,8 @@ interface AccountMenuProps {
 export const AccountMenu: React.FC<AccountMenuProps> = ({ visible }) => {
     const { data: currentUser } = useCurrentUser();
 
-    if (!visible) {
-        return null;
-    }
-
     return (
-        <div className="bg-black w-56 absolute top-14 right-0 py-5 flex-col border-2 border-gray-800 flex">
+        <div className={`bg-black w-56 absolute top-14 right-0 py-5 flex-col border-2 border-gray-800 flex ${visible ? "scale-100 translate-y-0 opacity-100" : "scale-0 -translate-y-[100vh] opacity-0"} transition-all duration-300 ease-in-out`}>
             <div className="flex flex-col gap-3">
                 <div className="px-3 group/item flex flex-row gap-3 items-center w-full">
                     <img className="w-8 rounded-md" src="/images/default-blue.png" alt="" />

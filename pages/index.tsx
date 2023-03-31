@@ -1,7 +1,7 @@
 import { NextPageContext } from 'next';
 import { getSession } from 'next-auth/react';
 
-import { Navbar, Billboard, MovieList, InfoModal } from '@/components';
+import { Billboard, MovieList, InfoModal } from '@/components';
 import useMovieList from '@/hooks/useMovieList';
 import useFavorites from '@/hooks/useFavorites';
 import useInfoModalStore from '@/hooks/useInfoModalStore';
@@ -35,7 +35,6 @@ const Home = () => {
         <title>CGFlix Clone</title>
       </Head>
       <InfoModal visible={isOpen} onClose={closeModal} />
-      <Navbar />
       <Billboard />
       <div className="pb-40">
         <MovieList title="Trending Now" data={movies} />

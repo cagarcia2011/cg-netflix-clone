@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 
 import '../styles/globals.css';
 import Head from 'next/head';
+import { HomeLayout } from '@/components';
 
 export default function App({
   Component,
@@ -23,7 +24,9 @@ export default function App({
         <title>CGFlix Clone</title>
       </Head>
       <SessionProvider session={session}>
-        <Component {...pageProps} />
+        <HomeLayout>
+          <Component {...pageProps} />
+        </HomeLayout>
       </SessionProvider>
     </>
   )
