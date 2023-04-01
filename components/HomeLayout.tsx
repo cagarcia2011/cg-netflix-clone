@@ -14,7 +14,7 @@ export const HomeLayout: React.FC<HomeLayoutProps> = ({ children }) => {
             router.pathname !== "/auth" && router.pathname !== "/profiles" &&
             <Navbar />
         }
-      <main>{children}</main>
+      <main className='h-[100svh]'>{children}</main>
     </>
   )
 }

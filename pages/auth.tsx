@@ -114,7 +114,7 @@ const Auth = () => {
             <Head>
                 <title>CGFlix Clone Sign In</title>
             </Head>
-            <div className="relative h-[100svh] w-full bg-hero bg-image">
+            <div className="relative h-[80svh] lg:h-[100svh] w-full lg:bg-hero lg:bg-image">
                 <div className="bg-black w-full h-full lg:bg-opacity-50">
                     <Nav />
                     <div className="flex justify-center">
@@ -154,7 +154,7 @@ const Auth = () => {
                         </div>
                     </div>
                 </div>
-                <div className="absolute w-full bottom-0 left-0 h-[20vh] bg-black bg-opacity-70 py-2 md:py-8 px-4 md:overflow-hidden overflow-scroll">
+                <div className="relative lg:absolute w-full bottom-0 left-0 lg:h-[20vh] bg-black bg-opacity-70 py-2 md:py-8 px-4 md:overflow-hidden overflow-scroll">
                     <div className="flex justify-center items-center">
                         <div className="px-[10%] py-4">
                             <p className="text-white text-md font-medium">

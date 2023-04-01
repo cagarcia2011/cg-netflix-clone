@@ -43,7 +43,7 @@ const App: NextPage<AppProps> = ({ imgSrc }) => {
                 <title>CGFlix Clone Profiles</title>
             </Head>
             <div className="flex items-center h-full justify-center">
-                <div className="flex flex-col">
+                <div className="flex flex-col items-center justify-center">
                     <h1 className="text-3xl md:text-6xl text-white text-center">Who&#39;s watching?</h1>
                     <div className="flex items-center justify-center gap-8 mt-10">
                         <div onClick={() => selectProfile()}>
