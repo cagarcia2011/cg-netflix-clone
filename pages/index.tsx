@@ -36,7 +36,7 @@ const Home = () => {
       </Head>
       <InfoModal visible={isOpen} onClose={closeModal} />
       <Billboard />
-      <div className="pb-40">
+      <div className="pb-40  w-full relative ">
         <MovieList title="Trending Now" data={movies} />
         <MovieList title="My List" data={favorites} />
       </div>
