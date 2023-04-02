@@ -11,7 +11,7 @@ export const HomeLayout: React.FC<HomeLayoutProps> = ({ children }) => {
   return (
     <>
         {
-            router.pathname !== "/auth" && router.pathname !== "/profiles" &&
+            router.pathname !== "/auth" && router.pathname !== "/profiles" && !router.pathname.startsWith("/watch") &&
             <Navbar />
         }
       <main className='h-[100svh]'>{children}</main>
